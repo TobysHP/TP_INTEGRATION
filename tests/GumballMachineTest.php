@@ -126,7 +126,7 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
 	
     public function testDeleteC()
     {
-        $this->assertEquals(true,$this->gumballMachineInstance->DeleteC($this->gumballMachineInstance->GetIdC("IA"));
+        $this->assertEquals(true,$this->gumballMachineInstance->DeleteC($this->gumballMachineInstance->GetIdC("IA")));
     }
    
 }
