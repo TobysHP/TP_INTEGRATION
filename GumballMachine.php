@@ -85,10 +85,10 @@ class GumballMachine
 	    return $user['id'];
 	}
 	
-	public function GetIdC($intitule,$duree)
+	public function GetIdC($intitule)
 	{
-	    $stmt = $this->bdd->prepare("select id from cours where intitule=? and duree=?");
-	    $stmt->execute([$intitule,$duree]); 
+	    $stmt = $this->bdd->prepare("select id from cours where intitule=?);
+	    $stmt->execute([$intitule]); 
 	    $user = $stmt->fetch();
 	    return $user['id'];
 	}
@@ -186,6 +186,35 @@ class GumballMachine
 	
 	public function DeleteP()
 	{
+	    try
+	    {
+		$this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$sql = "DELETE FROM prof WHERE id = '$id'";
+		$this->bdd->exec($sql);
+		return true;
+	    }
+	    catch(PDOException $e)
+	    {
+	        echo $sql . "<br>" . $e->getMessage();
+		return false;
+	    }
+	    
+	}
+	
+	public function DeleteC()
+	{
+	    try
+	    {
+		$this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$sql = "DELETE FROM cours WHERE id = '$id'";
+		$this->bdd->exec($sql);
+		return true;
+	    }
+	    catch(PDOException $e)
+	    {
+	        echo $sql . "<br>" . $e->getMessage();
+		return false;
+	    }
 	    
 	}
 	
