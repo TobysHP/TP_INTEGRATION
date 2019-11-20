@@ -69,11 +69,10 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     
     public function testAffichageCoursAVI()
     {
-        /*à completer*/
+        $this->assertEquals(true,$this->gumballMachineInstance->AffichageCours("After Insertion of Cours"));
     }
     public function testInsertC()
     {
-       /*
         $max__id1=$this->gumballMachineInstance->GetLastIDP();
         $this->assertEquals(true,$this->gumballMachineInstance->Insertc($this->gumballMachineInstance->getDB(),$this->intitule1,$this->duree1, 2));
         $max__id2=$this->gumballMachineInstance->GetLastIDP();
@@ -93,12 +92,27 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(true,$this->gumballMachineInstance->Insertc($this->gumballMachineInstance->getDB(),$this->intitule4,$this->duree4, 3));
         $max__id2=$this->gumballMachineInstance->GetLastIDP();
         $this->assertEquals($max__id1+1,$max__id2);
-        */
         
     }
     public function testAffichageCoursAPI()
     {
-        /*à completer*/
+         $this->assertEquals(true,$this->gumballMachineInstance->AffichageCours("After Insertion of Cours"));
+    }
+    
+    public function clearDB()
+    {
+        try 
+	    {
+	       $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	       $sql = "DELETE *"
+	       $bdd->exec($sql);
+	       return true;
+	    }
+	    catch(PDOException $e)
+	    {
+	        echo $sql . "<br>" . $e->getMessage();
+	        return false;
+	    }
     }
 
    
