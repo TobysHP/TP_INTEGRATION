@@ -125,4 +125,20 @@ class GumballMachine
 	{
 	    
 	}
+	
+	    public function clearDB()
+    {
+        try 
+	    {
+	       $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	       $sql = "DELETE *"
+	       $bdd->exec($sql);
+	       return true;
+	    }
+	    catch(PDOException $e)
+	    {
+	        echo $sql . "<br>" . $e->getMessage();
+	        return false;
+	    }
+    }
 }
