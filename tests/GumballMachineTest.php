@@ -74,22 +74,22 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     public function testInsertC()
     {
         $max__id1=$this->gumballMachineInstance->GetLastIDP();
-        $this->assertEquals(true,$this->gumballMachineInstance->Insertc($this->gumballMachineInstance->getDB(),$this->intitule1,$this->duree1, 2));
+        $this->assertEquals(true,$this->gumballMachineInstance->Insertc($this->gumballMachineInstance->getDB(),$this->intitule1,$this->duree1, "2"));
         $max__id2=$this->gumballMachineInstance->GetLastIDP();
         $this->assertEquals($max__id1+1,$max__id2);
         
         $max__id1=$this->gumballMachineInstance->GetLastIDP();
-        $this->assertEquals(true,$this->gumballMachineInstance->Insertc($this->gumballMachineInstance->getDB(),$this->intitule2,$this->duree2, 1));
+        $this->assertEquals(true,$this->gumballMachineInstance->Insertc($this->gumballMachineInstance->getDB(),$this->intitule2,$this->duree2, "1"));
         $max__id2=$this->gumballMachineInstance->GetLastIDP();
         $this->assertEquals($max__id1+1,$max__id2);
         
         $max__id1=$this->gumballMachineInstance->GetLastIDP();
-        $this->assertEquals(true,$this->gumballMachineInstance->Insertc($this->gumballMachineInstance->getDB(),$this->intitule3,$this->duree3, 3));
+        $this->assertEquals(true,$this->gumballMachineInstance->Insertc($this->gumballMachineInstance->getDB(),$this->intitule3,$this->duree3, "3"));
         $max__id2=$this->gumballMachineInstance->GetLastIDP();
         $this->assertEquals($max__id1+1,$max__id2);
         
         $max__id1=$this->gumballMachineInstance->GetLastIDP();
-        $this->assertEquals(true,$this->gumballMachineInstance->Insertc($this->gumballMachineInstance->getDB(),$this->intitule4,$this->duree4, 3));
+        $this->assertEquals(true,$this->gumballMachineInstance->Insertc($this->gumballMachineInstance->getDB(),$this->intitule4,$this->duree4, "3"));
         $max__id2=$this->gumballMachineInstance->GetLastIDP();
         $this->assertEquals($max__id1+1,$max__id2);
         
