@@ -138,6 +138,20 @@ class GumballMachine
 		
 	}
 	
+	public function GetDatasP($id)
+	{
+	    $stmt = $this->bdd->prepare("select nom, prenom, date_naissance, lieu_naissance from prof where id=?");
+	    $stmt->execute([$id]);
+	    $user = $stmt->fetch();
+	    $datas = array();
+	    array_push($datas,$user['nom']);
+	    array_push($datas,$user['prenom']);
+	    array_push($datas,$user['date_naissance']);
+	    array_push($datas,$user['lieu_naissance']);
+	    return $datas;
+		
+	}
+	
 	public function UpdateC($id, $intitule, $duree, $id_prof)
 	{
 	    try
