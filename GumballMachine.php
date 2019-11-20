@@ -84,6 +84,15 @@ class GumballMachine
 	    $user = $stmt->fetch();
 	    return $user['id'];
 	}
+	
+	public function GetIdC($intitule)
+	{
+	    $stmt = $this->bdd->prepare("select id from cours where intitule=?");
+	    $stmt->execute([$intitule]); 
+	    $user = $stmt->fetch();
+	    return $user['id'];
+	}
+	
 	public function GetLastIDP()
 	{
 	    $stmt = $this->bdd->prepare("select max(id) as maximum from prof");
@@ -116,9 +125,36 @@ class GumballMachine
 	    return $user['maximum'];
 	}
 	
-	public function UpdateP()
+	public function UpdateC($id, $intitule, $duree , $id_prof)
 	{
-	    
+            try
+	    {
+	        $this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	        $sql = "UPDTADE cours SET ('$intitule', '$duree', '$id_prof') WHERE id = '$id'";
+	        $this->bdd->exec($sql);
+	        return true;
+	    }
+	    catch(PDOException $e)
+	    {
+	        echo $sql . "<br>" . $e->getMessage();
+		    return false;
+	    }    
+	}
+
+	public function UpdateP($id, $nom, $prenom , $date_naissance,$lieu)
+	{
+            try
+	    {
+	        $this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	        $sql = "UPDTADE cours SET ('$nom', 'prenom' ,'$date_naissance','$lieu') WHERE id = '$id'";
+	        $this->bdd->exec($sql);
+	        return true;
+	    }
+	    catch(PDOException $e)
+	    {
+	        echo $sql . "<br>" . $e->getMessage();
+		    return false;
+	    }    
 	}
 	
 	public function DeleteP()
@@ -126,21 +162,21 @@ class GumballMachine
 	    
 	}
 	
-	    public function clearDB()
-    {
-        try 
+        public function clearDB()
+        {
+       	    try 
 	    {
-	       $this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	       $sql = "DELETE FROM cours";
-	       $this->bdd->exec($sql);
-	       $sql = "DELETE FROM prof";
-	       $this->bdd->exec($sql);
-	       return true;
+	        $this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	        $sql = "DELETE FROM cours";
+	        $this->bdd->exec($sql);
+	        $sql = "DELETE FROM prof";
+	        $this->bdd->exec($sql);
+	        return true;
 	    }
 	    catch(PDOException $e)
 	    {
 	        echo $sql . "<br>" . $e->getMessage();
 	        return false;
 	    }
-    }
+        }
 }
