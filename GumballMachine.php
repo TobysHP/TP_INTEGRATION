@@ -154,20 +154,20 @@ class GumballMachine
 	    }
 	}
 
-	public function UpdateP($id, $nom, $prenom , $date_naissance,$lieu)
+	public function UpdateP($id, $nom, $prenom, $date, $lieu)
 	{
-            try
+	    try
 	    {
-	        $this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	        $sql = "UPDATE cours SET nom = '$nom', prenom = '$prenom', date_naissance = '$date_naissance', lieu = '$lieu' WHERE id = '$id'";
-	        $this->bdd->exec($sql);
-	        return true;
+		$this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$sql = "UPDATE prof SET nom = '$nom', prenom = '$prenom', date_naissance = '$date', lieu_naissance = '$lieu' WHERE id = '$id'";
+		$this->bdd->exec($sql);
+		return true;
 	    }
 	    catch(PDOException $e)
 	    {
 	        echo $sql . "<br>" . $e->getMessage();
-		    return false;
-	    }    
+		return false;
+	    }
 	}
 	
 	public function DeleteP()
