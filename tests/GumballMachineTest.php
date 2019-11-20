@@ -6,13 +6,33 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
 {
     public $gumballMachineInstance;
     //prof
-    private $nom="x_test_tp"; // a changer
-    private $prenom="y_test_tp"; // a changer
-    private $date_naissance="0000-00-00"; // a changer
-    private $lieu_naissance="XY"; // a changer
+    private $nom1="XXX1";
+    private $nom2="XX2";
+    private $nom3="XXX3";
+    
+    private $prenom1="YYY1";
+    private $prenom2="YYY2";
+    private $prenom3="YYY3";
+    
+    private $date_naissanc1="1980-09-29";
+    private $date_naissanc2="1981-10-30";
+    private $date_naissanc3="1982-12-31";
+    
+    private $lieu_naissance1="ZZZ1";
+    private $lieu_naissance2="ZZZ2";
+    private $lieu_naissance3="ZZZ3";
+    
     // cours
-    private $intitule="***"; //a remplir
-    private $duree="***";    //a remplir
+    
+    private $intitule1="IOT";
+    private $intitule2="IA";
+    private $intitule3="C++";
+    private $intitule4="EDL";
+    
+    private $duree1="10";
+    private $duree2="12";
+    private $duree3="18";
+    private $duree4="30";
     
         
     public function setUp()
@@ -27,29 +47,57 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     public function testInsertP()
     {
         $max__id1=$this->gumballMachineInstance->GetLastIDP();
-        $this->assertEquals(true,$this->gumballMachineInstance->InsertP($this->gumballMachineInstance->getDB(),$this->nom,$this->prenom,$this->date_naissance,$this->lieu_naissance));
+        $this->assertEquals(true,$this->gumballMachineInstance->InsertP($this->gumballMachineInstance->getDB(),$this->nom1,$this->prenom1,$this->date_naissance1,$this->lieu_naissance1));
+        $max__id2=$this->gumballMachineInstance->GetLastIDP();
+        $this->assertEquals($max__id1+1,$max__id2);
+        
+        $max__id1=$this->gumballMachineInstance->GetLastIDP();
+        $this->assertEquals(true,$this->gumballMachineInstance->InsertP($this->gumballMachineInstance->getDB(),$this->nom2,$this->prenom2,$this->date_naissance2,$this->lieu_naissance2));
+        $max__id2=$this->gumballMachineInstance->GetLastIDP();
+        $this->assertEquals($max__id1+1,$max__id2);
+        
+        $max__id1=$this->gumballMachineInstance->GetLastIDP();
+        $this->assertEquals(true,$this->gumballMachineInstance->InsertP($this->gumballMachineInstance->getDB(),$this->nom3,$this->prenom3,$this->date_naissance3,$this->lieu_naissance3));
         $max__id2=$this->gumballMachineInstance->GetLastIDP();
         $this->assertEquals($max__id1+1,$max__id2);
     }
     public function testAffichageProfAPI()
     {
-        /*à completer*/
+        /*Ã  completer*/
     }
      
     
     public function testAffichageCoursAVI()
     {
-        /*à completer*/
+        /*Ã  completer*/
     }
     public function testInsertC()
     {
        
-        /*à completer*/
+        $max__id1=$this->gumballMachineInstance->GetLastIDP();
+        $this->assertEquals(true,$this->gumballMachineInstance->Insertc($this->gumballMachineInstance->getDB(),$this->intitule1,$this->duree1, 2));
+        $max__id2=$this->gumballMachineInstance->GetLastIDP();
+        $this->assertEquals($max__id1+1,$max__id2);
+        
+        $max__id1=$this->gumballMachineInstance->GetLastIDP()
+        $this->assertEquals(true,$this->gumballMachineInstance->Insertc($this->gumballMachineInstance->getDB(),$this->intitule2,$this->duree2, 1));
+        $max__id2=$this->gumballMachineInstance->GetLastIDP();
+        $this->assertEquals($max__id1+1,$max__id2);
+        
+        $max__id1=$this->gumballMachineInstance->GetLastIDP();
+        $this->assertEquals(true,$this->gumballMachineInstance->Insertc($this->gumballMachineInstance->getDB(),$this->intitule3,$this->duree3, 3));
+        $max__id2=$this->gumballMachineInstance->GetLastIDP();
+        $this->assertEquals($max__id1+1,$max__id2);
+        
+        $max__id1=$this->gumballMachineInstance->GetLastIDP();
+        $this->assertEquals(true,$this->gumballMachineInstance->Insertc($this->gumballMachineInstance->getDB(),$this->intitule4,$this->duree4, 3));
+        $max__id2=$this->gumballMachineInstance->GetLastIDP();
+        $this->assertEquals($max__id1+1,$max__id2);
         
     }
     public function testAffichageCoursAPI()
     {
-        /*à completer*/
+        /*Ã  completer*/
     }
 
    
