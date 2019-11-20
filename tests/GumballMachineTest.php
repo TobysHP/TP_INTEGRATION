@@ -39,7 +39,10 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     {
         $this->gumballMachineInstance = new GumballMachine();
     }
-    
+    public function testClearDB()
+    {
+	$this->gumballMachineInstance->clearDB();   
+    }    
     public function testAffichageProfAVI()
     {
         $this->assertEquals(true,$this->gumballMachineInstance->AffichageProf("Before Insertion of Professors"));
@@ -99,21 +102,6 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
          $this->assertEquals(true,$this->gumballMachineInstance->AffichageCours("After Insertion of Cours"));
     }
     
-    public function clearDB()
-    {
-        /*try 
-	    {
-	       $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	       $sql = "DELETE *"
-	       $bdd->exec($sql);
-	       return true;
-	    }
-	    catch(PDOException $e)
-	    {
-	        echo $sql . "<br>" . $e->getMessage();
-	        return false;
-	    }*/
-    }
 
    
 }
