@@ -85,13 +85,12 @@ class GumballMachine
 	    return $user['id'];
 	}
 	
-	public function GetIdC($intitule)
+	public function GetIdC($intitule,$duree)
 	{
-	    $stmt = $this->bdd->prepare("select id from cours where intitule=?");
-	    $stmt->execute([$intitule]); 
+	    $stmt = $this->bdd->prepare("select id from cours where intitule=? and duree=?");
+	    $stmt->execute([$intitule,$duree]); 
 	    $user = $stmt->fetch();
-	    echo $user[0];
-	    return $user[0];
+	    return $user['id'];
 	}
 	
 	public function GetLastIDP()
@@ -126,20 +125,33 @@ class GumballMachine
 	    return $user['maximum'];
 	}
 	
-	public function UpdateC($id, $intitule, $duree , $id_prof)
+	public function GetDatasC($id)
 	{
-            try
+	    $stmt = $this->bdd->prepare("select intitule, duree, id_prof from cours where id=?");
+	    $stmt->execute([$id]);
+	    $user = $stmt->fetch();
+	    $datas = array();
+	    array_push($datas,$user['intitule']);
+	    array_push($datas,$user['duree']);
+	    array_push($datas,$user['id_prof']);
+	    return $datas;
+		
+	}
+	
+	public function UpdateC($id, $intitule, $duree, $id_prof)
+	{
+	    try
 	    {
-	        $this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	        $sql = "UPDATE cours SET intitule = 'bvhj', duree = 24 WHERE id = 91";
-	        $this->bdd-exec($sql);
-	        return true;
+		$this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$sql = "UPDATE cours SET intitule = '$intitule', duree = '$duree', id_prof = '$id_prof' WHERE id = '$id'";
+		$this->bdd->exec($sql);
+		return true;
 	    }
 	    catch(PDOException $e)
 	    {
 	        echo $sql . "<br>" . $e->getMessage();
 		return false;
-	    }    
+	    }
 	}
 
 	public function UpdateP($id, $nom, $prenom , $date_naissance,$lieu)
