@@ -90,6 +90,7 @@ class GumballMachine
 	    $stmt = $this->bdd->prepare("select id from cours where intitule=?");
 	    $stmt->execute([$intitule]); 
 	    $user = $stmt->fetch();
+	    echo $user['id';
 	    return $user['id'];
 	}
 	
@@ -137,7 +138,7 @@ class GumballMachine
 	    catch(PDOException $e)
 	    {
 	        echo $sql . "<br>" . $e->getMessage();
-		    return false;
+		return false;
 	    }    
 	}
 
