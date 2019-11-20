@@ -41,7 +41,7 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     }
     public function testClearDB()
     {
-	$this->gumballMachineInstance->clearDB();   
+	$this->assertEquals(true, $this->gumballMachineInstance->clearDB());
     }    
     public function testAffichageProfAVI()
     {
