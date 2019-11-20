@@ -6,11 +6,11 @@ class GumballMachine
 	private $gumballs;
 	
 	private $bdd;
-	/* Paramètre de connexion à la base de données*/
+	/* ParamÃ¨tre de connexion Ã  la base de donnÃ©es*/
 	private $servername="localhost";
-	private $db_name="mydb1"; //a remplir
-	private $db_user="myuser1"; //a remplir
-	private $db_pass="mypassword1"; //a remplir
+	private $db_name="mydb29"; //a remplir
+	private $db_user="myuser29"; //a remplir
+	private $db_pass="mypassword29"; //a remplir
 	
 	
 	function __construct()
