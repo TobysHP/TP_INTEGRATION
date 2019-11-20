@@ -74,22 +74,22 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     public function testInsertC()
     {
         $max__id1=$this->gumballMachineInstance->GetLastIDC();
-        $this->assertContains("good job",$this->intitule1,$this->duree1, $this->gumballMachineInstance->GetIdP($this->nom2,$this->prenom2)));
+        $this->assertContains("good job",$this->intitule1,$this->duree1, $this->gumballMachineInstance->GetIdP($this->nom2,$this->prenom2));
         $max__id2=$this->gumballMachineInstance->GetLastIDC();
         $this->assertEquals($max__id1+1,$max__id2);
         
         $max__id1=$this->gumballMachineInstance->GetLastIDC();
-        $this->assertContains("good job",$this->intitule2,$this->duree2, $this->gumballMachineInstance->GetIdP($this->nom1,$this->prenom1)));
+        $this->assertContains("good job",$this->intitule2,$this->duree2, $this->gumballMachineInstance->GetIdP($this->nom1,$this->prenom1));
         $max__id2=$this->gumballMachineInstance->GetLastIDC();
         $this->assertEquals($max__id1+1,$max__id2);
         
         $max__id1=$this->gumballMachineInstance->GetLastIDC();
-        $this->assertContains("good job",$this->intitule3,$this->duree3, $this->gumballMachineInstance->GetIdP($this->nom3,$this->prenom3)));
+        $this->assertContains("good job",$this->intitule3,$this->duree3, $this->gumballMachineInstance->GetIdP($this->nom3,$this->prenom3));
         $max__id2=$this->gumballMachineInstance->GetLastIDC();
         $this->assertEquals($max__id1+1,$max__id2);
         
         $max__id1=$this->gumballMachineInstance->GetLastIDC();
-        $this->assertContains("good job",$this->intitule4,$this->duree4, $this->gumballMachineInstance->GetIdP($this->nom3,$this->prenom3)));
+        $this->assertContains("good job",$this->intitule4,$this->duree4, $this->gumballMachineInstance->GetIdP($this->nom3,$this->prenom3));
         $max__id2=$this->gumballMachineInstance->GetLastIDC();
         $this->assertEquals($max__id1+1,$max__id2);
         
