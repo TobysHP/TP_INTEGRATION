@@ -90,7 +90,7 @@ class GumballMachine
 	    $stmt = $this->bdd->prepare("select id from cours where intitule=?");
 	    $stmt->execute([$intitule]); 
 	    $user = $stmt->fetch();
-	    echo $user['id';
+	    echo $user['id'];
 	    return $user['id'];
 	}
 	
