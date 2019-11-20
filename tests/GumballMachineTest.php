@@ -74,7 +74,7 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     public function testInsertC()
     {
         $max__id1=$this->gumballMachineInstance->GetLastIDP();
-        $this->assertEquals(true,$this->gumballMachineInstance->Insertc($this->gumballMachineInstance->getDB(),$this->intitule1,$this->duree1, $this->gumballMachineInstance->GetIdP($this->nom2,$this->prenom2));
+        $this->assertEquals(true,$this->gumballMachineInstance->Insertc($this->gumballMachineInstance->getDB(),$this->intitule1,$this->duree1, $this->gumballMachineInstance->GetIdP($this->nom2,$this->prenom2)));
         $max__id2=$this->gumballMachineInstance->GetLastIDP();
         $this->assertEquals($max__id1+1,$max__id2);
         
