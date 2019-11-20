@@ -101,7 +101,7 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     
     public function clearDB()
     {
-        try 
+        /*try 
 	    {
 	       $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	       $sql = "DELETE *"
@@ -112,7 +112,7 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
 	    {
 	        echo $sql . "<br>" . $e->getMessage();
 	        return false;
-	    }
+	    }*/
     }
 
    
