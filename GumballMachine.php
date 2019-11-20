@@ -201,7 +201,7 @@ class GumballMachine
 	    
 	}
 	
-	public function DeleteC()
+	public function DeleteC($id)
 	{
 	    try
 	    {
