@@ -90,8 +90,8 @@ class GumballMachine
 	    $stmt = $this->bdd->prepare("select id from cours where intitule=?");
 	    $stmt->execute([$intitule]); 
 	    $user = $stmt->fetch();
-	    echo $user['id'];
-	    return $user['id'];
+	    echo $user[0];
+	    return $user[0];
 	}
 	
 	public function GetLastIDP()
