@@ -98,7 +98,7 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     
      public function testUpdateC()
     {
-        $idToUpdate = $this->gumballMachineInstance->getIdC("EDL", "30");
+        $idToUpdate = $this->gumballMachineInstance->getIdC("EDL");
         $this->assertEquals(true,$this->gumballMachineInstance->UpdateC($idToUpdate, "MECAFLOTTE", "150", $this->gumballMachineInstance->getIdP($this->nom2,$this->prenom2)));
         $datasC = $this->gumballMachineInstance->GetDatasC($idToUpdate);
         $this->assertEquals("MECAFLOTTE",$datasC[0]);
@@ -122,6 +122,11 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
     {
          $this->assertEquals(true,$this->gumballMachineInstance->AffichageCours("After Update of Cours"));
 	 $this->assertEquals(true,$this->gumballMachineInstance->AffichageProf("After Update of Prof"));
+    }
+	
+    public function testDeleteC()
+    {
+        $this->assertEquals(true,$this->gumballMachineInstance->DeleteC($this->gumballMachineInstance->GetIdC("IA"));
     }
    
 }
