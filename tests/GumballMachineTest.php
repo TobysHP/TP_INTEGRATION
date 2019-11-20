@@ -96,9 +96,15 @@ class GumballMachineTest extends PHPUnit_Framework_TestCase
          $this->assertEquals(true,$this->gumballMachineInstance->AffichageCours("After Insertion of Cours"));
     }
     
-    public function testUpdateC()
+     public function testUpdateC()
     {
-        $this->assertEquals(true,$this->gumballMachineInstance->UpdateC($this->gumballMachineInstance->GetIdC($this->intitule1), $this->intitule1,$this->duree4, $this->gumballMachineInstance->GetIdP($this->nom2,$this->prenom2)));
+        $idToUpdate = $this->gumballMachineInstance->getIdC("EDL", "30");
+        $this->assertEquals(true,$this->gumballMachineInstance->UpdateC($idToUpdate, "MECAFLOTTE", "150", $this->gumballMachineInstance->getIdP($this->nom2,$this->prenom2)));
+        $datasC = $this->gumballMachineInstance->GetDatasC($idToUpdate);
+        $this->assertEquals("MECAFLOTTE",$datasC[0]);
+        $this->assertEquals("150",$datasC[1]);
+        $this->assertEquals($this->gumballMachineInstance->getIdP($this->nom2,$this->prenom2),$datasC[2]);
+        
     }
 	
    public function testUpdateP()
